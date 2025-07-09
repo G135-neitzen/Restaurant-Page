@@ -1,0 +1,252 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Merriweather', serif;
+  background: linear-gradient(135deg, #fffbe6 0%, #f5e6ca 100%);
+  color: #2d2d2d;
+  min-height: 100vh;
+}
+
+/* Header/Nav */
+#navbar, nav, .navbar {
+  width: 100%;
+  background: linear-gradient(90deg, #b22222 0%, #228b22 100%);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  font-size: 1.2rem;
+  gap: 2rem;
+}
+
+#navbar button, nav button, .navbar button,
+#home, #menu, #about {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+#navbar button:hover, nav button:hover, .navbar button:hover,
+#home:hover, #menu:hover, #about:hover {
+  background: #fff;
+  color: #b22222;
+  transform: scale(1.08);
+}
+
+/* Main Container */
+.container {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  background: #fffdfa;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(34,139,34,0.08), 0 1.5px 8px rgba(178,34,34,0.06);
+  padding: 3.5rem 2rem 2.5rem 2rem; /* More top padding for space above content */
+  animation: fadeIn 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+/* Section Titles */
+.container h1 {
+  font-family: 'Playfair Display', serif;
+  color: #b22222;
+  margin-bottom: 2.2rem; /* More space below the title */
+  margin-top: 0.5rem;    /* More space above the title */
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #f5e6ca;
+  font-size: 2.5rem;
+}
+
+.container h2 {
+  color: #228b22;
+  margin: 1.5rem 0 0.7rem 0;
+  font-size: 1.4rem;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Section Styling */
+.intro-section, .about-section, .menu-section, .hours-section, .contact-section,
+.menu-pizza, .menu-pasta, .menu-desserts {
+  margin-bottom: 2rem;
+  animation: slideUp 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+.intro-section img,
+.menu-pizza img,
+.menu-pasta img,
+.menu-desserts img {
+  display: block;
+  margin: 2rem auto 1.2rem auto; /* More space above and below images */
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(178,34,34,0.13);
+  width: 100%;
+  max-width: 500px; /* Larger max width */
+  min-width: 220px;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+.intro-section img:hover,
+.menu-pizza img:hover,
+.menu-pasta img:hover,
+.menu-desserts img:hover {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding: 0.3rem 0;
+  font-size: 1.08rem;
+  border-bottom: 1px dashed #e6cfcf;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/* Food section layout: image and list side by side */
+.menu-pizza,
+.menu-pasta,
+.menu-desserts {
+  display: flex;
+  align-items: stretch; /* Make image and list the same height */
+  justify-content: space-between;
+  gap: 2.5rem;
+  background: #f8f6f2;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(34,139,34,0.07);
+  padding: 2rem 1.5rem;
+}
+
+.menu-pizza ul,
+.menu-pasta ul,
+.menu-desserts ul {
+  flex: 1;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-pizza img,
+.menu-pasta img,
+.menu-desserts img {
+  flex: 1;
+  max-width: 340px;
+  min-width: 200px;
+  width: 100%;
+  height: 100%; /* Make image fill the section height */
+  object-fit: cover; /* Crop image to fit if needed */
+  margin: 0 0 0 2rem;
+  align-self: stretch; /* Stretch image to match ul height */
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(178,34,34,0.13);
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+/* Responsive: stack image and list vertically on small screens */
+@media (max-width: 900px) {
+  .menu-pizza,
+  .menu-pasta,
+  .menu-desserts {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .menu-pizza img,
+  .menu-pasta img,
+  .menu-desserts img {
+    margin: 1.2rem auto 0 auto;
+    max-width: 98vw;
+    height: auto;
+    align-self: center;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .container {
+    padding: 1.2rem 0.5rem;
+    border-radius: 0.7rem;
+  }
+  .intro-section img,
+  .menu-pizza img,
+  .menu-pasta img,
+  .menu-desserts img {
+    max-width: 98vw;
+    width: 100%;
+  }
+  #navbar, nav, .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+    padding: 0.7rem 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0.5rem 0.1rem;
+  }
+  .container h1 {
+    font-size: 1.3rem;
+  }
+  .container h2 {
+    font-size: 1.05rem;
+  }
+}
+
+/* Italian flag accent bar */
+body::before {
+  content: "";
+  display: block;
+  width: 100vw;
+  height: 7px;
+  background: linear-gradient(90deg, #008000 33%, #fff 33%, #fff 66%, #ff0000 66%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Nice touch for links/buttons */
+a, button {
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #f5e6ca;
+}
+::-webkit-scrollbar-thumb {
+  background: #b22222;
+  border-radius: 4px;
+}
